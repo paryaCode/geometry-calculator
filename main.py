@@ -6,9 +6,20 @@ from geometry import (
     square_area_perimeter,
     rectangle_area_perimeter,
     triangle_area_perimeter,
-    circle_area_perimeter,
-    print_result)
+    circle_area_perimeter)
 #------------------------------------------------------------------
+def print_result(shape: str, value_type: str, value: float) -> None:
+    """
+    Prints the result (area or perimeter) for a given shape
+    parameters: 
+        - shape: 'square', 'circle', etc
+        - value_type: 'area' or ;perimeter'
+        - value: the numeric result
+    """
+    print('\n-------------------------------')
+    print(f'{value_type.capitalize()} of {shape} is: {round(value, 2)}')
+    print('-------------------------------')
+#----------------------------------------------------------------------
 def menu() -> int:  
     """
     Start menu

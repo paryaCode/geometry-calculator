@@ -1,16 +1,4 @@
 import math
-#----------------------------------------------------------------------
-def print_result(shape: str, value_type: str, value: float) -> None:
-    """
-    Prints the result (area or perimeter) for a given shape
-    parameters: 
-        - shape: 'square', 'circle', etc
-        - value_type: 'area' or ;perimeter'
-        - value: the numeric result
-    """
-    print('\n-------------------------------')
-    print(f'{value_type.capitalize()} of {shape} is: {round(value, 2)}')
-    print('-------------------------------')
 #------------------------------------------------------------------
 def square_area_perimeter() -> tuple[float, float]:
     """
@@ -46,11 +34,13 @@ def triangle_area_perimeter() -> tuple[float, float]:
     side1 = float(input('\nEnter side 1: '))
     side2 = float(input('Enter side 2: '))
     side3 = float(input('Enter side 3: '))
-    height = float(input('Enter height: '))
-
-    area = (side1 * height) / 2
+    
     perimeter = side1 + side2 + side3
-
+    s = perimeter / 2
+    try:
+        area = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+    except ValueError:
+        area = 0
     return area, perimeter
 #end def
 #------------------------------------------------------------------
